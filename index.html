@@ -7,55 +7,72 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        .content {
+            text-align: center;
             padding: 50px;
         }
-        .container {
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
             margin-top: 50px;
         }
-        h1 {
-            color: #4CAF50;
-        }
-        .logout-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: red;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .logout-btn:hover {
-            background-color: darkred;
-        }
+
     </style>
 </head>
 <body>
 
-<?php
-// 세션 시작
-session_start();
+    <!-- 상단 네비게이션 바 -->
+    <header>
+        <h1>웹사이트 이름</h1>
+        <nav>
+            <a href="login.html">로그인</a>
+            <a href="signup.html">회원가입</a>
+        </nav>
+    </header>
 
-// 세션에 사용자 정보가 없으면 로그인 페이지로 리디렉션
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html"); // 로그인하지 않은 경우 로그인 페이지로 리디렉션
-    exit;
-}
-
-// 사용자 이름 세션에서 가져오기
-$username = $_SESSION['username'];
-?>
-
-    <div class="container">
-        <h1>환영합니다, <?php echo htmlspecialchars($username); ?>님!</h1>
-        <p>로그인에 성공하였습니다. 여기는 홈 페이지입니다.</p>
-
-        <!-- 로그아웃 버튼 -->
-        <form action="logout.php" method="POST">
-            <button type="submit" class="logout-btn">로그아웃</button>
-        </form>
+    <!-- 메인 콘텐츠 -->
+    <div class="content">
+        <h2>환영합니다!</h2>
+        <p>이곳은 여러분이 사이트를 탐색할 수 있는 기본적인 홈 페이지입니다.</p>
+        <p>로그인하거나 회원가입 후 더 많은 기능을 이용해보세요!</p>
     </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2024 웹사이트 이름. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
