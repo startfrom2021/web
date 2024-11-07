@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username']; // 사용자 이름 저장
             
             // 홈 페이지로 리디렉션
-            header("Location: home.html");
+            header("Location: index.html");
             exit;
         } else {
             echo "비밀번호가 일치하지 않습니다.";
